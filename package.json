@@ -1,0 +1,44 @@
+{
+  "name": "zfe-skeleton",
+  "version": "1.0.0",
+  "description": "Skeleton application for zfe project",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -d --watch",
+    "backend": "cd public && APPLICATION_ENV=development php -S 0:8000",
+    "start": "concurrently 'npm run backend' 'npm run watch' 'npm run tunnel:mysql'",
+    "tunnel:mysql": "ssh -L 3306:127.0.0.1:3306 dev.archive.systems",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^11.2.0",
+    "autosize": "^4.0.2",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "bootstrap-sass": "^3.4.1",
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html5sortable": "^0.9.8",
+    "jquery": "^1.12.4",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-manifest-plugin": "^2.0.4",
+    "zfe": "^1.30.8"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "zfbase/zfe-skeleton",
+    "description": "Skeleton application for zfe project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ilya Serdyuk",
+            "email": "ilya@serdyuk.pro",
+            "role": "Developer"
+        },
+        {
+            "name": "Dmitriy Demin",
+            "email": "dma01x@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Dmitriy Stepanov",
+            "email": "stepdi@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "scripts": {
+        "models": "export APPLICATION_ENV=development && ./scripts/doctrine-cli generate-models-db",
+        "lint": "php-cs-fixer fix --diff --dry-run",
+        "fix": "php-cs-fixer fix"
+    },
+    "require": {
+        "php": "^7.1",
+        "zfbase/zfe": "~1.30.0"
+    }
+}

@@ -1,0 +1,956 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bbda0ce544437f813a069cd8132c1421",
+    "packages": [
+        {
+            "name": "analog/analog",
+            "version": "1.0.11-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jbroadway/analog.git",
+                "reference": "f04906be5a740794959ecceaaae307792cfe3b58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jbroadway/analog/zipball/f04906be5a740794959ecceaaae307792cfe3b58",
+                "reference": "f04906be5a740794959ecceaaae307792cfe3b58",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "psr/log": "1.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Analog": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johnny Broadway",
+                    "email": "johnny@johnnybroadway.com",
+                    "homepage": "http://www.johnnybroadway.com/"
+                }
+            ],
+            "description": "PHP logging class that can be extended via closures. Includes several pre-built handlers including file, mail, syslog, HTTP post, and MongoDB.",
+            "homepage": "https://github.com/jbroadway/analog",
+            "keywords": [
+                "alerts",
+                "debug",
+                "debugging",
+                "error",
+                "log",
+                "logger",
+                "logging",
+                "syslog"
+            ],
+            "time": "2018-12-08T15:36:38+00:00"
+        },
+        {
+            "name": "electrolinux/php-html5lib",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/electrolinux/php-html5lib.git",
+                "reference": "9f92154993c7ecb120d9f9c0e558660d32846721"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/electrolinux/php-html5lib/zipball/9f92154993c7ecb120d9f9c0e558660d32846721",
+                "reference": "9f92154993c7ecb120d9f9c0e558660d32846721",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HTML5Lib": "src/",
+                    "HTML5Lib\\Tests": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Multiple users",
+                    "homepage": "https://code.google.com/p/html5lib/",
+                    "role": "Original developers"
+                },
+                {
+                    "name": "Sébastien Lavoie",
+                    "homepage": "http://blog.lavoie.sl",
+                    "role": "Packager"
+                },
+                {
+                    "name": "didier Belot",
+                    "role": "Packager"
+                }
+            ],
+            "description": "A PHP implementations of a HTML parser based on the WHATWG HTML5 specification.",
+            "homepage": "https://github.com/electrolinux/php-html5lib",
+            "keywords": [
+                "HTML5",
+                "php"
+            ],
+            "time": "2013-03-18T18:32:30+00:00"
+        },
+        {
+            "name": "greenlion/php-sql-parser",
+            "version": "v4.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/greenlion/PHP-SQL-Parser.git",
+                "reference": "b4e8522ebca3e5c8bbd4e2c25edaef155a96db20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/greenlion/PHP-SQL-Parser/zipball/b4e8522ebca3e5c8bbd4e2c25edaef155a96db20",
+                "reference": "b4e8522ebca3e5c8bbd4e2c25edaef155a96db20",
+                "shasum": ""
+            },
+            "require": {
+                "analog/analog": "^1.0.6",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0.14",
+                "squizlabs/php_codesniffer": "^1.5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPSQLParser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "André Rothe",
+                    "email": "phosco@gmx.de",
+                    "homepage": "https://www.phosco.info",
+                    "role": "Committer"
+                },
+                {
+                    "name": "Justin Swanhart",
+                    "email": "greenlion@gmail.com",
+                    "homepage": "http://code.google.com/u/greenlion@gmail.com/",
+                    "role": "Owner"
+                }
+            ],
+            "description": "A pure PHP SQL (non validating) parser w/ focus on MySQL dialect of SQL",
+            "homepage": "https://github.com/greenlion/PHP-SQL-Parser",
+            "keywords": [
+                "creator",
+                "mysql",
+                "parser",
+                "sql"
+            ],
+            "time": "2017-05-16T21:20:45+00:00"
+        },
+        {
+            "name": "hoa/consistency",
+            "version": "1.17.05.02",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Consistency.git",
+                "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Consistency/zipball/fd7d0adc82410507f332516faf655b6ed22e4c2f",
+                "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/exception": "~1.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "hoa/stream": "~1.0",
+                "hoa/test": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Consistency\\": "."
+                },
+                "files": [
+                    "Prelude.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Consistency library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "autoloader",
+                "callable",
+                "consistency",
+                "entity",
+                "flex",
+                "keyword",
+                "library"
+            ],
+            "time": "2017-05-02T12:18:12+00:00"
+        },
+        {
+            "name": "hoa/event",
+            "version": "1.17.01.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Event.git",
+                "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Event/zipball/6c0060dced212ffa3af0e34bb46624f990b29c54",
+                "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "require-dev": {
+                "hoa/test": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Event\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Event library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "event",
+                "library",
+                "listener",
+                "observer"
+            ],
+            "time": "2017-01-13T15:30:50+00:00"
+        },
+        {
+            "name": "hoa/exception",
+            "version": "1.17.01.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Exception.git",
+                "reference": "091727d46420a3d7468ef0595651488bfc3a458f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Exception/zipball/091727d46420a3d7468ef0595651488bfc3a458f",
+                "reference": "091727d46420a3d7468ef0595651488bfc3a458f",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/event": "~1.0"
+            },
+            "require-dev": {
+                "hoa/test": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Exception\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "https://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Exception library.",
+            "homepage": "https://hoa-project.net/",
+            "keywords": [
+                "exception",
+                "library"
+            ],
+            "time": "2017-01-16T07:53:27+00:00"
+        },
+        {
+            "name": "hoa/ustring",
+            "version": "4.16.01.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Ustring.git",
+                "reference": "9f76b9aae5901b4f476ef854e29ccd746d6899d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Ustring/zipball/9f76b9aae5901b4f476ef854e29ccd746d6899d2",
+                "reference": "9f76b9aae5901b4f476ef854e29ccd746d6899d2",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/consistency": "~1.0",
+                "hoa/exception": "~1.0"
+            },
+            "require-dev": {
+                "hoa/test": "~2.0"
+            },
+            "suggest": {
+                "ext-iconv": "ext/iconv must be present (or a third implementation) to use Hoa\\Ustring::transcode().",
+                "ext-intl": "To get a better Hoa\\Ustring::toAscii() and Hoa\\Ustring::compareTo()."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Ustring\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Ustring library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "library",
+                "search",
+                "string",
+                "unicode"
+            ],
+            "time": "2016-01-11T09:51:34+00:00"
+        },
+        {
+            "name": "jdorn/sql-formatter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jdorn/sql-formatter.git",
+                "reference": "7ef9b85961956aa572413693e1194b60f50ab9ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/7ef9b85961956aa572413693e1194b60f50ab9ab",
+                "reference": "7ef9b85961956aa572413693e1194b60f50ab9ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "bin": [
+                "bin/sql-formatter"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Dorn",
+                    "email": "jeremy@jeremydorn.com",
+                    "homepage": "http://jeremydorn.com/"
+                }
+            ],
+            "description": "a PHP SQL highlighting library",
+            "homepage": "https://github.com/jdorn/sql-formatter/",
+            "keywords": [
+                "highlight",
+                "sql"
+            ],
+            "time": "2015-08-30T16:36:01+00:00"
+        },
+        {
+            "name": "judev/php-htmltruncator",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/judev/php-htmltruncator.git",
+                "reference": "c1c44513f686e742f6b6f55e8fd86d3465e3a013"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/judev/php-htmltruncator/zipball/c1c44513f686e742f6b6f55e8fd86d3465e3a013",
+                "reference": "c1c44513f686e742f6b6f55e8fd86d3465e3a013",
+                "shasum": ""
+            },
+            "require": {
+                "electrolinux/php-html5lib": "0.1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.4.*"
+            },
+            "suggest": {
+                "ext-intl": "*",
+                "ext-mbstring": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HtmlTruncator": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jude Venn",
+                    "homepage": "https://github.com/judev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "HTML Truncation library, ported from the html_truncator rubygem",
+            "homepage": "https://github.com/judev/php-htmltruncator",
+            "keywords": [
+                "html",
+                "php"
+            ],
+            "time": "2016-04-06T13:52:41+00:00"
+        },
+        {
+            "name": "ltd-beget/ascii-table",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LTD-Beget/ascii-table.git",
+                "reference": "15baa488deb93ae0ec7a980cba6c0d8808a172df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LTD-Beget/ascii-table/zipball/15baa488deb93ae0ec7a980cba6c0d8808a172df",
+                "reference": "15baa488deb93ae0ec7a980cba6c0d8808a172df",
+                "shasum": ""
+            },
+            "require": {
+                "marc-mabe/php-enum": "2.2.*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "theseer/phpdox": "0.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LTDBeget\\ascii": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Viskov Sergey",
+                    "homepage": "https://github.com/voksiv"
+                }
+            ],
+            "description": "Php library with ascii table enum.",
+            "keywords": [
+                "ascii"
+            ],
+            "time": "2016-03-25T00:00:45+00:00"
+        },
+        {
+            "name": "ltd-beget/sphinx-configuration-tokenizer",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LTD-Beget/sphinx-configuration-tokenizer.git",
+                "reference": "c849ec70172f6620fd3afe0aeb4d3f7c1baeb088"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LTD-Beget/sphinx-configuration-tokenizer/zipball/c849ec70172f6620fd3afe0aeb4d3f7c1baeb088",
+                "reference": "c849ec70172f6620fd3afe0aeb4d3f7c1baeb088",
+                "shasum": ""
+            },
+            "require": {
+                "ltd-beget/stringstream": "~1.0.2",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.2.*",
+                "theseer/phpdox": "0.8.*",
+                "tideways/profiler": "2.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LTDBeget\\sphinx": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Viskov Sergey",
+                    "homepage": "https://github.com/voksiv"
+                }
+            ],
+            "description": "tokenize sphinx configuration and that's all, folks.",
+            "keywords": [
+                "configuration",
+                "sphinx",
+                "tokenize",
+                "tokens"
+            ],
+            "time": "2016-08-25T15:35:17+00:00"
+        },
+        {
+            "name": "ltd-beget/stringstream",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LTD-Beget/stringstream.git",
+                "reference": "881d35a8a1984853648c2164198c96f46cff7ed3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LTD-Beget/stringstream/zipball/881d35a8a1984853648c2164198c96f46cff7ed3",
+                "reference": "881d35a8a1984853648c2164198c96f46cff7ed3",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/ustring": "4.16.01.11",
+                "ltd-beget/ascii-table": "1.*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "theseer/phpdox": "0.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LTDBeget\\stringstream": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Viskov Sergey",
+                    "homepage": "https://github.com/voksiv"
+                }
+            ],
+            "description": "Php Stringstream data structure.",
+            "keywords": [
+                "stream",
+                "stringstream"
+            ],
+            "time": "2016-08-25T15:24:30+00:00"
+        },
+        {
+            "name": "marc-mabe/php-enum",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marc-mabe/php-enum.git",
+                "reference": "bedfbc1c64f6e3b8b03f0078f8f80f1ec44f3c10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marc-mabe/php-enum/zipball/bedfbc1c64f6e3b8b03f0078f8f80f1ec44f3c10",
+                "reference": "bedfbc1c64f6e3b8b03f0078f8f80f1ec44f3c10",
+                "shasum": ""
+            },
+            "require": {
+                "ext-reflection": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "php": "PHP>=5.4 will be required for using trait EnumSerializableTrait"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev",
+                    "dev-1.x": "1.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MabeEnum\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Bennewitz",
+                    "email": "dev@mabe.berlin",
+                    "homepage": "http://mabe.berlin/",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Simple and fast implementation of enumerations with native PHP 5.3 and upper",
+            "homepage": "https://github.com/marc-mabe/php-enum",
+            "keywords": [
+                "enum",
+                "enum-map",
+                "enum-set",
+                "enumeration",
+                "enummap",
+                "enumset",
+                "type-hint",
+                "typehint"
+            ],
+            "time": "2016-09-06T14:41:54+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2018-11-21T13:42:00+00:00"
+        },
+        {
+            "name": "zendframework/zendframework1",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zf1.git",
+                "reference": "136735e776f520b081cd374012852cb88cef9a88"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/136735e776f520b081cd374012852cb88cef9a88",
+                "reference": "136735e776f520b081cd374012852cb88cef9a88",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.11"
+            },
+            "require-dev": {
+                "phpunit/dbunit": "1.3.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.12.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Zend_": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "library/"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Zend Framework 1",
+            "homepage": "http://framework.zend.com/",
+            "keywords": [
+                "ZF1",
+                "framework"
+            ],
+            "abandoned": "zendframework/zendframework",
+            "time": "2018-05-16T15:50:52+00:00"
+        },
+        {
+            "name": "zfbase/doctrine1",
+            "version": "v1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zfbase/doctrine1.git",
+                "reference": "f0c7f98b3bf94eb362fee86d928bd2f958c29033"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zfbase/doctrine1/zipball/f0c7f98b3bf94eb362fee86d928bd2f958c29033",
+                "reference": "f0c7f98b3bf94eb362fee86d928bd2f958c29033",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": ">=5.2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Konsta Vesterinen",
+                    "email": "kvesteri@cc.hut.fi"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "PHP5 Database ORM",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "orm"
+            ],
+            "time": "2018-05-16T20:47:06+00:00"
+        },
+        {
+            "name": "zfbase/zend1-bootstrap3",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zfbase/zend1-bootstrap3.git",
+                "reference": "c10d116212e1aa46ae8047ea7c4d4b668ea7282c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zfbase/zend1-bootstrap3/zipball/c10d116212e1aa46ae8047ea7c4d4b668ea7282c",
+                "reference": "c10d116212e1aa46ae8047ea7c4d4b668ea7282c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "zendframework/zendframework1": "~1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Twitter_Bootstrap3_": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "library/"
+            ],
+            "license": [
+                "MIT"
+            ],
+            "description": "Twitter Bootstrap v.3 Forms for Zend Framework v.1",
+            "keywords": [
+                "ZF1",
+                "bootstrap",
+                "form",
+                "twitter",
+                "twitter bootstrap",
+                "zend",
+                "zend form",
+                "zend form decorators"
+            ],
+            "time": "2018-09-27T14:59:20+00:00"
+        },
+        {
+            "name": "zfbase/zfe",
+            "version": "v1.30.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zfbase/zfe.git",
+                "reference": "d2d198917b3252418fe053b64aa7fbea71fb39a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zfbase/zfe/zipball/d2d198917b3252418fe053b64aa7fbea71fb39a8",
+                "reference": "d2d198917b3252418fe053b64aa7fbea71fb39a8",
+                "shasum": ""
+            },
+            "require": {
+                "greenlion/php-sql-parser": "4.1.2",
+                "jdorn/sql-formatter": "~1",
+                "judev/php-htmltruncator": "^1.1",
+                "ltd-beget/sphinx-configuration-tokenizer": "^1.0",
+                "php": ">=7.1",
+                "zendframework/zendframework1": "~1",
+                "zfbase/doctrine1": "^1.2",
+                "zfbase/zend1-bootstrap3": "~1"
+            },
+            "suggest": {
+                "foolz/sphinxql-query-builder": "^1.2",
+                "phpoffice/phpspreadsheet": "PhpOffice\\PhpSpreadsheet for SendExcel2007 action helper",
+                "phpoffice/phpword": "PhpOffice\\PhpWord dev-FBnil-patch-blocks for SendWord2007 & SendWord2007Template action helpers"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZFE_": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "library/"
+            ],
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilya Serdyuk",
+                    "email": "ilya@serdyuk.pro",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dmitriy Demin",
+                    "email": "dma01x@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dmitriy Stepanov",
+                    "email": "stepdi@gmail.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Alexey Sumin",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ZFE – платформа для построения редакторских интерфейсов",
+            "time": "2019-02-27T14:54:03+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.1"
+    },
+    "platform-dev": []
+}

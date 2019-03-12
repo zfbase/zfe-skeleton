@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbda0ce544437f813a069cd8132c1421",
+    "content-hash": "a245ef6fcbd87947bf40f629d907a5be",
     "packages": [
         {
             "name": "analog/analog",
-            "version": "1.0.11-stable",
+            "version": "1.0.12-stable",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jbroadway/analog.git",
-                "reference": "f04906be5a740794959ecceaaae307792cfe3b58"
+                "reference": "4ac87ac59555db6eaba734b2b022fcc296e8729d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jbroadway/analog/zipball/f04906be5a740794959ecceaaae307792cfe3b58",
-                "reference": "f04906be5a740794959ecceaaae307792cfe3b58",
+                "url": "https://api.github.com/repos/jbroadway/analog/zipball/4ac87ac59555db6eaba734b2b022fcc296e8729d",
+                "reference": "4ac87ac59555db6eaba734b2b022fcc296e8729d",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "logging",
                 "syslog"
             ],
-            "time": "2018-12-08T15:36:38+00:00"
+            "time": "2019-03-05T22:41:22+00:00"
         },
         {
             "name": "electrolinux/php-html5lib",
@@ -878,16 +878,16 @@
         },
         {
             "name": "zfbase/zfe",
-            "version": "v1.30.8",
+            "version": "v1.31.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zfbase/zfe.git",
-                "reference": "d2d198917b3252418fe053b64aa7fbea71fb39a8"
+                "reference": "46a760ab672ffc012c362a03295d61f8f33f3cff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zfbase/zfe/zipball/d2d198917b3252418fe053b64aa7fbea71fb39a8",
-                "reference": "d2d198917b3252418fe053b64aa7fbea71fb39a8",
+                "url": "https://api.github.com/repos/zfbase/zfe/zipball/46a760ab672ffc012c362a03295d61f8f33f3cff",
+                "reference": "46a760ab672ffc012c362a03295d61f8f33f3cff",
                 "shasum": ""
             },
             "require": {
@@ -940,7 +940,7 @@
                 }
             ],
             "description": "ZFE – платформа для построения редакторских интерфейсов",
-            "time": "2019-02-27T14:54:03+00:00"
+            "time": "2019-03-12T16:17:21+00:00"
         }
     ],
     "packages-dev": [],

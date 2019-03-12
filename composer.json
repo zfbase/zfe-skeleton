@@ -28,6 +28,6 @@
     },
     "require": {
         "php": "^7.1",
-        "zfbase/zfe": "~1.30.0"
+        "zfbase/zfe": "~1.31.0"
     }
 }

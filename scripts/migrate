@@ -1,0 +1,40 @@
+#!/usr/bin/php
+<?php
+/**
+ * Doctrine CLI script
+ */
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+// Define application environment
+defined('APPLICATION_ENV')
+|| define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+require_once __DIR__ . '/../constants.php';
+
+// Create application, bootstrap, and run
+$application = new Zend_Application(
+    APPLICATION_ENV,
+    APPLICATION_PATH . '/configs/application.ini'
+);
+
+$application->getBootstrap()
+    ->bootstrap('config')
+    ->bootstrap('loader')
+    ->bootstrap('doctrine')
+;
+
+$config = Zend_Registry::get('config')->doctrine;
+$migration = new Doctrine_Migration($config->migrations_path);
+try {
+    if ($argc > 1) {
+        $migration->migrate($argv[1]);
+    } else {
+        $migration->migrate();
+    }
+} catch (Doctrine_Exception $e) {
+    echo $e->getMessage();
+    if (strpos($e->getMessage(), 'Already at') !== false) {
+         exit(0);
+    }
+    exit(1);
+}

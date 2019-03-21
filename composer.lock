@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "a245ef6fcbd87947bf40f629d907a5be",
@@ -878,16 +878,16 @@
         },
         {
             "name": "zfbase/zfe",
-            "version": "v1.31.1",
+            "version": "v1.31.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zfbase/zfe.git",
-                "reference": "46a760ab672ffc012c362a03295d61f8f33f3cff"
+                "reference": "e47dcd4aa9b28c06ad66aedaec093543eb85c8d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zfbase/zfe/zipball/46a760ab672ffc012c362a03295d61f8f33f3cff",
-                "reference": "46a760ab672ffc012c362a03295d61f8f33f3cff",
+                "url": "https://api.github.com/repos/zfbase/zfe/zipball/e47dcd4aa9b28c06ad66aedaec093543eb85c8d8",
+                "reference": "e47dcd4aa9b28c06ad66aedaec093543eb85c8d8",
                 "shasum": ""
             },
             "require": {
@@ -937,10 +937,15 @@
                 {
                     "name": "Alexey Sumin",
                     "role": "Developer"
+                },
+                {
+                    "name": "Nikita Orlov",
+                    "email": "n.dezz.orlov@gmail.com",
+                    "role": "Developer"
                 }
             ],
             "description": "ZFE – платформа для построения редакторских интерфейсов",
-            "time": "2019-03-12T16:17:21+00:00"
+            "time": "2019-03-18T15:16:10+00:00"
         }
     ],
     "packages-dev": [],

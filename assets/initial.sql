@@ -14,8 +14,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema zfe
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `zfe` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
-USE `zfe` ;
+-- CREATE SCHEMA IF NOT EXISTS `zfe` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+-- USE `zfe` ;
 
 -- -----------------------------------------------------
 -- Table `editors`

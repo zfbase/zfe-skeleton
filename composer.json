@@ -18,16 +18,30 @@
             "name": "Dmitriy Stepanov",
             "email": "stepdi@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Nikita Orlov",
+            "email": "n.dezz.orlov@gmail.com",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
     "scripts": {
         "tool": "./vendor/zfbase/zfe/bin/zfe-tools",
         "lint": "php-cs-fixer fix --diff --dry-run",
-        "fix": "php-cs-fixer fix"
+        "fix": "php-cs-fixer fix",
+        "post-create-project-cmd": [
+            "@update",
+            "npm i",
+            "npm up",
+            "@tool apply-schema",
+            "@tool models",
+            "@tool create-first-user",
+            "@tool remove-create-project-hook"
+        ]
     },
     "require": {
         "php": "^7.1",
-        "zfbase/zfe": "~1.32.2"
+        "zfbase/zfe": "~1.32.2",
+        "zfbase/zfe-skeleton-installer": "@dev"
     }
 }

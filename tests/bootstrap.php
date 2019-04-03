@@ -1,11 +1,22 @@
 <?php
 
-require_once '../vendor/autoload.php';
-
-// Define path to application directory
 defined('APPLICATION_PATH')
     || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 
-// Define application environment
-defined('APPLICATION_ENV')
-    || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'testing'));
+// забиваю жестко
+// во избежания потери данных в рабочей БД
+define('APPLICATION_ENV', 'testing');
+
+define('TEST_DATA_PATH', APPLICATION_PATH . '/../tests/_data/');
+define('DUMP_SQL', (getenv('DUMP_SQL') ? getenv('DUMP_SQL') : TEST_DATA_PATH . 'dump.sql'));
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$application = new Zend_Application(
+    APPLICATION_ENV,
+    APPLICATION_PATH . '/configs/application.ini'
+);
+
+$application->getBootstrap()->bootstrap('Config');
+$application->getBootstrap()->bootstrap('Loader');
+$application->getBootstrap()->bootstrap('Doctrine');

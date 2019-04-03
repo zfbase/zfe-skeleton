@@ -3,15 +3,22 @@
 # Миграции БД: подготовка и начало работы
 # https://confluence.archive.systems/x/IIDgAQ
 
+while getopts ":r" ARG; do
+    case $ARG in
+        r)
+            mysql -v -u root -e "DROP DATABASE IF EXISTS zfe"
+            mysql -v -u root -e "DROP DATABASE IF EXISTS zfe_test"
+            ;;
+    esac
+done
+
 mysql -v -u root -e "CREATE USER IF NOT EXISTS 'zfe'@'%' IDENTIFIED BY 'zfe'"
 
-#mysql -v -u root -e "DROP DATABASE IF EXISTS zfe"
 mysql -v -u root -e "CREATE DATABASE IF NOT EXISTS zfe CHARACTER SET utf8 COLLATE utf8_unicode_ci"
 mysql -v -u root -e "GRANT ALL ON zfe.* TO 'zfe'@'%'"
 mysql -v -u zfe -pzfe zfe < ./initial.sql
 
 # Создане БД для автоматического тестирования
-# mysql -u root -e "DROP DATABASE IF EXISTS zfe_test"
 mysql -v -u root -e "CREATE DATABASE IF NOT EXISTS zfe_test CHARACTER SET utf8 COLLATE utf8_unicode_ci"
 mysql -v -u root -e "GRANT ALL ON zfe_test.* TO 'zfe'@'%'"
 mysql -v -u zfe -pzfe zfe_test < ./initial.sql

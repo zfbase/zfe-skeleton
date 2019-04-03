@@ -7,15 +7,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
--- -----------------------------------------------------
--- Schema zfe
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema zfe
--- -----------------------------------------------------
--- CREATE SCHEMA IF NOT EXISTS `zfe` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
--- USE `zfe` ;
 
 -- -----------------------------------------------------
 -- Table `editors`
@@ -71,6 +62,27 @@ CREATE INDEX `FK_history_editors_1_idx` ON `history` (`user_id` ASC);
 -- User for tests
 -- tester / topsecurity+
 INSERT INTO `editors` (version, creator_id, editor_id, datetime_created, datetime_edited, deleted, status, second_name, first_name, middle_name, email, login, password, password_salt, role, department, comment) VALUES (1, null, null, '2019-04-03 08:04:15', '2019-04-03 08:04:15', 0, 0, 'Tester', 'Actor', null, 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9c9de02f70eab7a', '5ca4cb6f2d8f0', 'admin', null, 'topsecurity+');
+
+
+-- -----------------------------------------------------
+-- Table `tasks`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `tasks` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `created_at` TIMESTAMP NOT NULL,
+  `related_id` INT UNSIGNED NULL,
+  `state` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+  `scheduled_at` TIMESTAMP NULL,
+  `done_at` TIMESTAMP NULL,
+  `errors` TEXT NULL,
+  `performer_code` VARCHAR(64) NOT NULL,
+  `lft` INT UNSIGNED NULL,
+  `rgt` INT UNSIGNED NULL,
+  `level` INT UNSIGNED NULL,
+  `root_id` INT UNSIGNED NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -3,6 +3,6 @@
 /**
  * Базовое исключение уровня приложения
  */
-class Application_Exception extends ZFE_Exception
+class ZFE_File_Exception extends ZFE_Exception
 {
 }

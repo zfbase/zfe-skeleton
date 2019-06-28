@@ -35,9 +35,10 @@ if ($result) {
     if (!key_exists('chunk', $result)) {
         $modelName = (key_exists('m', $_REQUEST)) ? $_REQUEST['m'] : null;
         $itemId = (key_exists('id', $_REQUEST)) ? $_REQUEST['id'] : null;
-        if (empty($modelName) || empty($itemId)) {
+        $fieldCode = (key_exists('c', $_REQUEST)) ? $_REQUEST['c'] : null;
+        if (empty($modelName) || empty($itemId) || empty($fieldCode)) {
             @unlink($result['path']);
-            response(null, 400, 'Missed obligatory params: `m `or `id`. Cant move uploaded file!');
+            response(null, 400, 'Missed obligatory params: `m `or `id` or `c`. Cant move uploaded file!');
         } else {
             // TODO emit data somehow
 
@@ -49,10 +50,23 @@ if ($result) {
                 APPLICATION_PATH . '/configs/application.ini'
             ))->bootstrap();
 
+            /** @var Items $item */
             $item = $modelName::find($itemId);
             $result['item'] = $item->toArray();
 
-            response($result);
+            /** @var ZFE_File_Manager_Default $fm */
+            $fm = $item->getFileManager(false);
+            $schemas = $fm->getFieldsSchemas();
+            try {
+                $schemas->get($fieldCode);
+                $fm->manage([$result['path']], $fieldCode);
+                $files = $fm->getFiles();
+                $result['files'] = $files->toArray(0);
+                response($result);
+            } catch (ZFE_File_Exception $e) {
+                @unlink($result['path']);
+                response(null, 400, 'Bad field code given in `c` param!');
+            }
         }
     }
     response($result);

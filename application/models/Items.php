@@ -10,7 +10,7 @@
  * @author     ##NAME## <##EMAIL##>
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Items extends BaseItems
+class Items extends BaseItems implements ZFE_File_Manageable
 {
     /**
      * Половая принадлежность записи.
@@ -83,4 +83,14 @@ class Items extends BaseItems
      * @var bool
      */
     public static $mergeable = false;
+
+    /**
+     * @inheritDoc
+     */
+    public function getFileManager($accessControl, Editors $user = null): ZFE_File_Manager
+    {
+        $fm = new ZFE_File_Manager_Default($this, Zend_Registry::get('config')->files);
+        if ($accessControl) $fm->initAccessControl(Zend_Registry::get('acl'), $user);
+        return $fm;
+    }
 }

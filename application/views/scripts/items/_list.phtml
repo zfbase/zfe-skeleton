@@ -13,7 +13,7 @@
             <thead>
                 <tr>
                     <?= $this->sortableHeadCell('id') ?>
-                    <?= $this->sortableHeadCell('value') ?>
+                    <?= $this->sortableHeadCell('title') ?>
                     <?= $hasStatus ? $this->sortableHeadCell('status') : '' ?>
                     <?= $hasEdited ? $this->sortableHeadCell('datetime_edited', 'Последнее изменение') : '' ?>
                     <th class="text-right">Действия</th>
@@ -25,7 +25,7 @@
                         <td><?= $item->id ?></td>
                         <td>
                             <a href="<?= $item->getUrl() . $downHash . $this->searchPages()->getHash($rowIndex, '&') ?>">
-                                <?= $item->value ?>
+                                <?= $item->getTitle() ?>
                             </a>
                         </td>
                         <? if ($hasStatus): ?>

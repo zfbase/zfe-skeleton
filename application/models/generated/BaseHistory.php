@@ -31,92 +31,91 @@ abstract class BaseHistory extends AbstractRecord
         $this->setTableName('history');
         $this->hasColumn('id', 'integer', 4, array(
              'type' => 'integer',
-             'fixed' => 0,
+             'length' => 4,
+             'fixed' => false,
              'unsigned' => true,
              'primary' => true,
              'autoincrement' => true,
-             'length' => '4',
              ));
         $this->hasColumn('user_id', 'integer', 4, array(
              'type' => 'integer',
-             'fixed' => 0,
+             'length' => 4,
+             'fixed' => false,
              'unsigned' => true,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '4',
              ));
-        $this->hasColumn('datetime_action', 'timestamp', 25, array(
+        $this->hasColumn('datetime_action', 'timestamp', null, array(
              'type' => 'timestamp',
-             'fixed' => 0,
+             'fixed' => false,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '25',
              ));
         $this->hasColumn('table_name', 'string', 64, array(
              'type' => 'string',
-             'fixed' => 0,
+             'length' => 64,
+             'fixed' => false,
              'unsigned' => false,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => '64',
              ));
         $this->hasColumn('content_id', 'integer', 4, array(
              'type' => 'integer',
-             'fixed' => 0,
+             'length' => 4,
+             'fixed' => false,
              'unsigned' => true,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '4',
              ));
         $this->hasColumn('column_name', 'string', 64, array(
              'type' => 'string',
-             'fixed' => 0,
+             'length' => 64,
+             'fixed' => false,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '64',
              ));
         $this->hasColumn('content_version', 'integer', 4, array(
              'type' => 'integer',
-             'fixed' => 0,
+             'length' => 4,
+             'fixed' => false,
              'unsigned' => true,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '4',
              ));
         $this->hasColumn('content_old', 'string', 10000, array(
              'type' => 'string',
-             'fixed' => 0,
+             'length' => 10000,
+             'fixed' => false,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '10000',
              ));
         $this->hasColumn('content_new', 'string', 10000, array(
              'type' => 'string',
-             'fixed' => 0,
+             'length' => 10000,
+             'fixed' => false,
              'unsigned' => false,
              'primary' => false,
              'notnull' => false,
              'autoincrement' => false,
-             'length' => '10000',
              ));
         $this->hasColumn('action_type', 'integer', 1, array(
              'type' => 'integer',
-             'fixed' => 0,
+             'length' => 1,
+             'fixed' => false,
              'unsigned' => true,
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => '1',
              ));
     }
 

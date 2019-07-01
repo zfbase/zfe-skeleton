@@ -67,6 +67,31 @@ ENGINE = InnoDB;
 
 CREATE INDEX `FK_history_editors_1_idx` ON `history` (`user_id` ASC);
 
+-- -----------------------------------------------------
+-- Table `files`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `files` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `creator_id` int(10) UNSIGNED DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `model_name` varchar(255) NOT NULL,
+  `item_id` int(10) UNSIGNED NOT NULL,
+  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL,
+  `title_original` text NOT NULL,
+  `size` int(10) UNSIGNED DEFAULT NULL,
+  `hash` varchar(45) DEFAULT NULL,
+  `ext` varchar(4) NOT NULL,
+  `path` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_files_creator_id_idx` (`creator_id`),
+  CONSTRAINT `FK_files_creator_id_editors_id`
+    FOREIGN KEY (`creator_id`)
+    REFERENCES `editors` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE=InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -277,16 +277,3 @@ History:
       local: user_id
       foreign: id
       type: one
-Items:
-  connection: dbh
-  tableName: items
-  columns:
-    id:
-      type: integer(4)
-      fixed: 0
-      unsigned: true
-      primary: true
-      autoincrement: true
-    title:
-      type: string()
-      notnull: false

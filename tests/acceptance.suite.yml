@@ -1,0 +1,22 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+path: acceptance
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://test.zfe.local/
+        - Db:
+            dsn: 'mysql:host=127.0.0.1 dbname=zfe_test'
+            user: 'zfe'
+            password: 'zfe'
+            dbname: 'zfe_test'
+            populator: 'mysql -v -uzfe -pzfe zfe_test < tests/_data/dump.sql'
+            #https://github.com/Codeception/Codeception/issues/1740
+            cleanup: false # run populator before each test
+            populate: true # run populator before all test
+        - Asserts

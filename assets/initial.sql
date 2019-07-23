@@ -68,6 +68,10 @@ ENGINE = InnoDB;
 CREATE INDEX `FK_history_editors_1_idx` ON `history` (`user_id` ASC);
 
 
+-- User for tests
+-- tester / topsecurity+
+INSERT INTO `editors` (version, creator_id, editor_id, datetime_created, datetime_edited, deleted, status, second_name, first_name, middle_name, email, login, password, password_salt, role, department, comment) VALUES (1, null, null, '2019-04-03 08:04:15', '2019-04-03 08:04:15', 0, 0, 'Tester', 'Actor', null, 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9c9de02f70eab7a', '5ca4cb6f2d8f0', 'admin', null, 'topsecurity+');
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -8,5 +8,4 @@ window.$ = $;
 require('bootstrap-sass');
 
 window.App = App;
-
 App.init();

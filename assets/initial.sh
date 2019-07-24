@@ -21,9 +21,11 @@ mysql -v -u zfe -pzfe zfe < ./initial.sql
 # Создане БД для автоматического тестирования
 mysql -v -u root -e "CREATE DATABASE IF NOT EXISTS zfe_test CHARACTER SET utf8 COLLATE utf8_unicode_ci"
 mysql -v -u root -e "GRANT ALL ON zfe_test.* TO 'zfe'@'%'"
+
 mysql -v -u zfe -pzfe zfe_test < ./initial.sql
 
-
+# создаем директорию для хранения миграций
+mkdir -v -p ./doctrine/migrations
 # Вызываем утилиты из корня проекта
 cd ../
 

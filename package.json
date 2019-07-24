@@ -28,7 +28,6 @@
     "jquery": "^1.12.4",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.11.0",
-    "plupload": "^2.3.6",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "webpack": "^4.29.5",

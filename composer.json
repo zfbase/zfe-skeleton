@@ -28,7 +28,7 @@
     },
     "require": {
         "php": "^7.1",
-        "zfbase/zfe": "~1.33.4"
+        "zfbase/zfe": "master"
     },
     "autoload": {
         "psr-4": {

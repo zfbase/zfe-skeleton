@@ -33,7 +33,7 @@
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-manifest-plugin": "^2.0.4",
-    "zfe": "^1.30.8"
+    "zfe": "~1.33.54"
   },
   "devDependencies": {
     "concurrently": "^3.6.0",

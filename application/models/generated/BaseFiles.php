@@ -89,7 +89,7 @@ abstract class BaseFiles extends AbstractRecord
              'notnull' => false,
              'length' => '45',
              ));
-        $this->hasColumn('ext', 'string', 4, array(
+        $this->hasColumn('ext', 'string', 8, array(
              'type' => 'string',
              'notnull' => true,
              'length' => '4',

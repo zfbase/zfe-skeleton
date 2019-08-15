@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `files` (
   `title_original` text NOT NULL,
   `size` int(10) UNSIGNED DEFAULT NULL,
   `hash` varchar(45) DEFAULT NULL,
-  `ext` varchar(4) NOT NULL,
+  `ext` varchar(8) NOT NULL,
   `path` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_files_creator_id_idx` (`creator_id`),

@@ -145,6 +145,7 @@ Editors:
       local: id
       foreign: user_id
       type: many
+
 Files:
   connection: dbh
   tableName: files
@@ -188,7 +189,7 @@ Files:
       type: string(45)
       notnull: false
     ext:
-      type: string(4)
+      type: string(8)
       notnull: true
     path:
       type: string(512)
@@ -199,6 +200,7 @@ Files:
       local: creator_id
       foreign: id
       type: one
+
 History:
   connection: dbh
   tableName: history
@@ -277,9 +279,14 @@ History:
       local: user_id
       foreign: id
       type: one
+
 Tasks:
   connection: dbh
-  tableName: zfe.tasks
+  tableName: tasks
+  actAs:
+    NestedSet:
+      hasManyRoots: true
+      rootColumnName: root_id
   columns:
     id:
       type: integer(4)
@@ -337,32 +344,4 @@ Tasks:
       unsigned: false
       primary: false
       notnull: true
-      autoincrement: false
-    lft:
-      type: integer(4)
-      fixed: false
-      unsigned: true
-      primary: false
-      notnull: false
-      autoincrement: false
-    rgt:
-      type: integer(4)
-      fixed: false
-      unsigned: true
-      primary: false
-      notnull: false
-      autoincrement: false
-    level:
-      type: integer(4)
-      fixed: false
-      unsigned: true
-      primary: false
-      notnull: false
-      autoincrement: false
-    root_id:
-      type: integer(4)
-      fixed: false
-      unsigned: true
-      primary: false
-      notnull: false
       autoincrement: false

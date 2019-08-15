@@ -7,6 +7,12 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+-- -----------------------------------------------------
+-- Table `migration_version`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `migration_version` (
+    `version` INT NULL
+);
 
 -- -----------------------------------------------------
 -- Table `editors`
@@ -33,6 +39,9 @@ CREATE TABLE IF NOT EXISTS `editors` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+-- User for tests
+-- tester / topsecurity+
+INSERT INTO `editors` (version, creator_id, editor_id, datetime_created, datetime_edited, deleted, status, second_name, first_name, middle_name, email, login, password, password_salt, role, department, comment) VALUES (1, null, null, '2019-04-03 08:04:15', '2019-04-03 08:04:15', 0, 0, 'Tester', 'Actor', null, 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9c9de02f70eab7a', '5ca4cb6f2d8f0', 'admin', null, 'topsecurity+');
 
 -- -----------------------------------------------------
 -- Table `history`
@@ -82,12 +91,6 @@ CREATE TABLE IF NOT EXISTS `files` (
     ON DELETE SET NULL
     ON UPDATE SET NULL)
 ENGINE=InnoDB;
-
-
--- User for tests
--- tester / topsecurity+
-INSERT INTO `editors` (version, creator_id, editor_id, datetime_created, datetime_edited, deleted, status, second_name, first_name, middle_name, email, login, password, password_salt, role, department, comment) VALUES (1, null, null, '2019-04-03 08:04:15', '2019-04-03 08:04:15', 0, 0, 'Tester', 'Actor', null, 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9c9de02f70eab7a', '5ca4cb6f2d8f0', 'admin', null, 'topsecurity+');
-
 
 -- -----------------------------------------------------
 -- Table `tasks`

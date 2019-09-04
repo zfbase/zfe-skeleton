@@ -3,6 +3,6 @@
 /**
  * Bootstrap
  */
-class Bootstrap extends ZFE_Bootstrap
+class Application_Bootstrap extends ZFE_Bootstrap
 {
 }

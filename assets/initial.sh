@@ -36,7 +36,8 @@ mkdir -v -p ./doctrine/migrations
 cd ../
 composer tool migrate
 
-# обновляем initial.sql
+# возвращаемся обратно и обновляем initial.sql
+cd ./assets
 echo "DUMP SCHEMA AND DATA TO UPDATE initial.sql"
 mysqldump -v -u $USER -p$PASS --ignore-table=$NAME.history $NAME > ./initial.sql
 mysqldump -v -u $USER -p$PASS --no-data $NAME history >> ./initial.sql

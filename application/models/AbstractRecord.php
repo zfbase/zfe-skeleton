@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Базовая модель ресурса
+ * Базовая модель ресурса.
  */
 abstract class AbstractRecord extends ZFE_Model_AbstractRecord
 {

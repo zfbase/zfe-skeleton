@@ -4,21 +4,19 @@ namespace Tests\integration;
 
 /**
  * Class AppTest
- * Расширяем его повторяющейся функциональностью для тестирования приложения
- *
- * @package Tests\integration
+ * Расширяем его повторяющейся функциональностью для тестирования приложения.
  */
-abstract class AppTest extends ModelsTest {
-
+abstract class AppTest extends ModelsTest
+{
     /**
      * @var \Editors|null
      */
-    protected $user = null;
+    protected $user;
 
     /**
      * @throws \Exception
      */
-    function setUp()
+    public function setUp()
     {
         parent::setUp();
 
@@ -44,7 +42,7 @@ abstract class AppTest extends ModelsTest {
     /**
      * @return \Editors
      */
-    public function getUser() : \Editors
+    public function getUser(): \Editors
     {
         return $this->user;
     }

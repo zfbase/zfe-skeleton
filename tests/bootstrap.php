@@ -1,7 +1,7 @@
 <?php
 
 defined('APPLICATION_PATH')
-    || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+    || define('APPLICATION_PATH', realpath(__DIR__ . '/../application'));
 
 // забиваю жестко
 // во избежания потери данных в рабочей БД

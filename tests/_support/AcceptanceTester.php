@@ -2,30 +2,28 @@
 
 
 /**
- * Inherited Methods
- * @method void wantToTest($text)
- * @method void wantTo($text)
- * @method void execute($callable)
- * @method void expectTo($prediction)
- * @method void expect($prediction)
- * @method void amGoingTo($argumentation)
- * @method void am($role)
- * @method void lookForwardTo($achieveValue)
- * @method void comment($description)
+ * Inherited Methods.
+ *
+ * @method void                    wantToTest($text)
+ * @method void                    wantTo($text)
+ * @method void                    execute($callable)
+ * @method void                    expectTo($prediction)
+ * @method void                    expect($prediction)
+ * @method void                    amGoingTo($argumentation)
+ * @method void                    am($role)
+ * @method void                    lookForwardTo($achieveValue)
+ * @method void                    comment($description)
  * @method \Codeception\Lib\Friend haveFriend($name, $actorClass = NULL)
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
-   /**
-    * Define custom actions here
-    */
-
     /**
-     * Войти в систему. Вызывать в _before
+     * Войти в систему. Вызывать в _before.
+     *
      * @param string $user
      * @param string $pass
      */
@@ -43,7 +41,7 @@ class AcceptanceTester extends \Codeception\Actor
     }
 
     /**
-     * Выйти из системы
+     * Выйти из системы.
      */
     public function logout()
     {
@@ -60,7 +58,7 @@ class AcceptanceTester extends \Codeception\Actor
      * происходит нажатие.
      *
      * @param string $substring
-     * @param null $context
+     * @param null   $context
      */
     public function clickLinkLike($substring, $context = null)
     {
@@ -73,7 +71,7 @@ class AcceptanceTester extends \Codeception\Actor
     }
 
     /**
-     * Обертка для проверки успеха и отсутствия сообщения об ошибках на странице
+     * Обертка для проверки успеха и отсутствия сообщения об ошибках на странице.
      */
     public function dontSeePHPErrors()
     {

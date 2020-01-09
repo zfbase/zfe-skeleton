@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dezzpil
- * Date: 19.03.19
- * Time: 17:29
- */
 
 namespace Tests\integration\Model\Defaults;
 

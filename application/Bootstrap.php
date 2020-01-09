@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Bootstrap
+ * Bootstrap.
  */
 class Application_Bootstrap extends ZFE_Bootstrap
 {

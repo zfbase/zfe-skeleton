@@ -4,9 +4,9 @@ namespace Tests\integration;
 
 use PHPUnit\Framework\TestCase;
 
-abstract class ModelsTest extends TestCase {
-
-    function setUp()
+abstract class ModelsTest extends TestCase
+{
+    public function setUp()
     {
         $appIni = APPLICATION_PATH . '/configs/application.ini';
         $this->bootstrap = new \Zend_Application(APPLICATION_ENV, $appIni);
@@ -34,9 +34,8 @@ abstract class ModelsTest extends TestCase {
         shell_exec($cmd);
     }
 
-    function tearDown()
+    public function tearDown()
     {
         parent::tearDown();
     }
-
 }

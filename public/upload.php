@@ -1,10 +1,12 @@
 <?php
+
 define('UPLOAD_PATH', __DIR__ . '/../data/temp/');
 
-function response(array $result, $errCode = 0, $errMsg = null) {
-    $data = [ 'OK' => 1, 'info' => $result ];
+function response(array $result, $errCode = 0, $errMsg = null)
+{
+    $data = ['OK' => 1, 'info' => $result];
     if ($errCode) {
-        $data = [ 'OK' => 0, 'error' => [ 'code' => $errCode, 'message' => $errMsg ] ];
+        $data = ['OK' => 0, 'error' => ['code' => $errCode, 'message' => $errMsg]];
     }
     die(json_encode($data));
 }
@@ -20,7 +22,6 @@ $ph->sendNoCacheHeaders();
 $result = $ph->handleUpload();
 
 if ($result) {
-
     if (!key_exists('chunk', $result)) {
         // Все чанки файла переданы
 
@@ -56,7 +57,6 @@ if ($result) {
                     $files = $fm->getFiles();
                     $result['files'] = $files->toArray(0);
                     response($result);
-
                 } catch (ZFE_File_Exception $e) {
                     @unlink($result['path']);
                     response(null, 400, 'Bad field code given in `c` param!');

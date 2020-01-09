@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dezzpil
- * Date: 28.02.2018
- * Time: 18:01
- */
 
 namespace Tests\Integration;
 
@@ -15,7 +9,7 @@ class UserHelper
     /**
      * @return null|\Editors
      */
-    function getTester() : ?\Editors
+    public function getTester(): ?\Editors
     {
         return \Editors::findOneBy('login', static::LOGIN);
     }
@@ -23,7 +17,7 @@ class UserHelper
     /**
      * @param \Editors $user
      */
-    function auth(\Editors $user)
+    public function auth(\Editors $user)
     {
         \Zend_Registry::set('user', (object) [
             'data' => $user,
@@ -31,7 +25,7 @@ class UserHelper
             'role' => 'admin',
             'isAuthorized' => true,
             'displayName' => $user->getShortName(),
-            'canSwitchRoles' => true
+            'canSwitchRoles' => true,
         ]);
     }
 }

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dezzpil
- * Date: 03.04.19
- * Time: 18:12
- */
 
 namespace Tests\integration\Auth;
 
@@ -51,5 +45,4 @@ class EditorTest extends AppTest
 
         $this->assertNotEquals($this->getUser()->id, $authed->getId());
     }
-
 }

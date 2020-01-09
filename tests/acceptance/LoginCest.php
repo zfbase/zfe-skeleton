@@ -1,6 +1,7 @@
 <?php
-class LoginCest 
-{    
+
+class LoginCest
+{
     public function _before(AcceptanceTester $I)
     {
         $I->amOnPage('/');
@@ -8,11 +9,11 @@ class LoginCest
 
     public function loginSuccessfully(AcceptanceTester $I)
     {
-        // write a positive login test 
+        // write a positive login test
     }
-    
+
     public function loginWithInvalidPassword(AcceptanceTester $I)
     {
         // write a negative login test
-    }       
+    }
 }

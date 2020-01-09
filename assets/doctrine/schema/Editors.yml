@@ -1,0 +1,51 @@
+Editors:
+  comment: Пользователи
+  connection: dbh
+  actAs:
+    ZFE_Model_Template_BaseZfeFields:
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+      comment: Идентификатор
+    second_name:
+      type: string(125)
+      comment: Фамилия
+    first_name:
+      type: string(125)
+      comment: Имя
+    middle_name:
+      type: string(125)
+      comment: Отчество
+    email:
+      type: string(125)
+      comment: Эл. почта
+    phone:
+      type: string(125)
+      comment: Телефон
+    login:
+      type: string(31)
+      comment: Логин
+    password:
+      type: string(255)
+      comment: Пароль
+    password_salt:
+      type: string(31)
+      comment: Соль пароля
+    request_password_change:
+      type: integer(1)
+      unsigned: true
+      notnull: true
+      default: '0'
+      comment: Требование смены пароля
+    role:
+      type: string(31)
+      comment: Роль
+    department:
+      type: string(125)
+      comment: Подразделение
+    comment:
+      type: string(1000)
+      comment: Комментарий

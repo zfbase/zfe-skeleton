@@ -11,14 +11,15 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Table `migration_version`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `migration_version` (
-    `version` INT NULL
-);
+  `version` INT NOT NULL,
+  PRIMARY KEY (`version`));
+
 
 -- -----------------------------------------------------
 -- Table `editors`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `editors` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
   `version` INT UNSIGNED NOT NULL DEFAULT '1',
   `creator_id` INT UNSIGNED NULL,
   `editor_id` INT UNSIGNED NULL,
@@ -26,22 +27,26 @@ CREATE TABLE IF NOT EXISTS `editors` (
   `datetime_edited` TIMESTAMP NULL,
   `deleted` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
   `status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
-  `second_name` VARCHAR(100) NULL,
-  `first_name` VARCHAR(100) NULL,
-  `middle_name` VARCHAR(100) NULL,
-  `email` VARCHAR(100) NULL,
-  `login` VARCHAR(32) NULL,
-  `password` VARCHAR(255) NULL,
-  `password_salt` VARCHAR(32) NULL,
-  `role` VARCHAR(32) NULL,
-  `department` VARCHAR(100) NULL,
-  `comment` VARCHAR(1000) NULL,
+  `second_name` VARCHAR(125) NULL COMMENT 'Фамилия',
+  `first_name` VARCHAR(125) NULL COMMENT 'Имя',
+  `middle_name` VARCHAR(125) NULL COMMENT 'Отчество',
+  `email` VARCHAR(125) NULL COMMENT 'Эл. почта',
+  `phone` VARCHAR(125) NULL COMMENT 'Телефон',
+  `login` VARCHAR(31) NULL COMMENT 'Логин',
+  `password` VARCHAR(255) NULL COMMENT 'Пароль',
+  `password_salt` VARCHAR(31) NULL COMMENT 'Соль пароля',
+  `request_password_change` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Требование смены пароля',
+  `role` VARCHAR(31) NULL COMMENT 'Роль',
+  `department` VARCHAR(125) NULL COMMENT 'Подразделение',
+  `comment` VARCHAR(1000) NULL COMMENT 'Комментарий',
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 -- User for tests
 -- tester / topsecurity+
-INSERT INTO `editors` (version, creator_id, editor_id, datetime_created, datetime_edited, deleted, status, second_name, first_name, middle_name, email, login, password, password_salt, role, department, comment) VALUES (1, null, null, '2019-04-03 08:04:15', '2019-04-03 08:04:15', 0, 0, 'Tester', 'Actor', null, 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9c9de02f70eab7a', '5ca4cb6f2d8f0', 'admin', null, 'topsecurity+');
+INSERT INTO `editors` (second_name, first_name, email, login, password, password_salt, role, comment)
+VALUES ('Tester', 'Actor', 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9c9de02f70eab7a', '5ca4cb6f2d8f0', 'admin', 'topsecurity+');
+
 
 -- -----------------------------------------------------
 -- Table `history`
@@ -67,22 +72,26 @@ ENGINE = InnoDB;
 
 CREATE INDEX `FK_history_editors_1_idx` ON `history` (`user_id` ASC);
 
+
 -- -----------------------------------------------------
 -- Table `files`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `files` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `creator_id` int(10) UNSIGNED DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `model_name` varchar(255) NOT NULL,
-  `item_id` int(10) UNSIGNED NOT NULL,
-  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
-  `title` varchar(255) NOT NULL,
-  `title_original` text NOT NULL,
-  `size` int(10) UNSIGNED DEFAULT NULL,
-  `hash` varchar(45) DEFAULT NULL,
-  `ext` varchar(8) NOT NULL,
-  `path` text NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `version` INT UNSIGNED NOT NULL DEFAULT '1',
+  `creator_id` INT UNSIGNED NULL,
+  `editor_id` INT UNSIGNED NULL,
+  `datetime_created` TIMESTAMP NULL,
+  `datetime_edited` TIMESTAMP NULL,
+  `deleted` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
+  `model_name` varchar(255) NOT NULL COMMENT 'Модель записи, к которой привязан файл',
+  `item_id` int(10) UNSIGNED NOT NULL COMMENT 'ID записи, к которой привязан файл',
+  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Тип связи с записью, к которой привязан файл (код в схеме)',
+  `title` varchar(255) NOT NULL COMMENT 'Название исходного файла',
+  `size` int(10) UNSIGNED DEFAULT NULL COMMENT 'Размер файла в байтах',
+  `hash` varchar(45) DEFAULT NULL COMMENT 'Хэш сумма от файла',
+  `ext` varchar(7) NOT NULL COMMENT 'Расширение файла',
+  `path` varchar(511) NOT NULL COMMENT 'Путь до файла',
   PRIMARY KEY (`id`),
   KEY `FK_files_creator_id_idx` (`creator_id`),
   CONSTRAINT `FK_files_creator_id_editors_id`
@@ -92,18 +101,19 @@ CREATE TABLE IF NOT EXISTS `files` (
     ON UPDATE SET NULL)
 ENGINE=InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `tasks`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `created_at` TIMESTAMP NOT NULL,
-  `related_id` INT UNSIGNED NULL,
-  `state` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
-  `scheduled_at` TIMESTAMP NULL,
-  `done_at` TIMESTAMP NULL,
-  `errors` TEXT NULL,
-  `performer_code` VARCHAR(64) NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `created_at` TIMESTAMP NOT NULL COMMENT 'Дата добавления',
+  `scheduled_at` TIMESTAMP NULL COMMENT 'Плановое время запуска',
+  `done_at` TIMESTAMP NULL COMMENT 'Окончание исполнения',
+  `performer_code` VARCHAR(63) NOT NULL COMMENT 'Код исполнителя',
+  `related_id` INT UNSIGNED NULL COMMENT 'Объект исполнения',
+  `state` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Состояние',
+  `errors` VARCHAR(1000) NULL COMMENT 'Ошибки',
   `lft` INT UNSIGNED NULL,
   `rgt` INT UNSIGNED NULL,
   `level` INT UNSIGNED NULL,

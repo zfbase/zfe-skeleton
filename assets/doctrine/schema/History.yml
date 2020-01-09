@@ -1,0 +1,38 @@
+History:
+  comment: История изменений
+  connection: dbh
+  columns:
+    id:
+      type: integer(4)
+      unsigned: true
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(4)
+      unsigned: true
+    datetime_action:
+      type: timestamp(25)
+    table_name:
+      type: string(64)
+      notnull: true
+    content_id:
+      type: integer(4)
+      unsigned: true
+    column_name:
+      type: string(64)
+    content_version:
+      type: integer(4)
+      unsigned: true
+    content_old:
+      type: string(10000)
+    content_new:
+      type: string(10000)
+    action_type:
+      type: integer(1)
+      unsigned: true
+      notnull: true
+  relations:
+    Editors:
+      local: user_id
+      onUpdate: set null
+      onDelete: set null

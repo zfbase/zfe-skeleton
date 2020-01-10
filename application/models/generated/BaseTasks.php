@@ -36,7 +36,6 @@ abstract class BaseTasks extends AbstractRecord
              ));
         $this->hasColumn('created_at', 'timestamp', 25, array(
              'type' => 'timestamp',
-             'default' => 'current_timestamp()',
              'notnull' => true,
              'comment' => 'Дата добавления',
              'length' => '25',
@@ -71,7 +70,7 @@ abstract class BaseTasks extends AbstractRecord
              'comment' => 'Состояние',
              'length' => '1',
              ));
-        $this->hasColumn('errors', 'string', null, array(
+        $this->hasColumn('errors', 'string', 1000, array(
              'type' => 'string',
              'comment' => 'Ошибки',
              'length' => '1000',

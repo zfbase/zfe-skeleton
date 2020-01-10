@@ -16,7 +16,6 @@ Doctrine_Manager::getInstance()->bindComponent('Files', 'dbh');
  * @property string $hash Хэш сумма от файла
  * @property string $ext Расширение файла
  * @property string $path Путь до файла
- * @property Editors $Creator
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -38,30 +37,26 @@ abstract class BaseFiles extends AbstractRecord
              ));
         $this->hasColumn('model_name', 'string', 255, array(
              'type' => 'string',
-             'notnull' => true,
              'comment' => 'Модель записи, к которой привязан файл',
              'length' => '255',
              ));
         $this->hasColumn('item_id', 'integer', 4, array(
              'type' => 'integer',
              'unsigned' => true,
-             'notnull' => true,
              'comment' => 'ID записи, к которой привязан файл',
              'length' => '4',
              ));
         $this->hasColumn('type', 'integer', 1, array(
              'type' => 'integer',
              'unsigned' => true,
-             'notnull' => true,
-             'default' => '0',
              'comment' => 'Тип связи с записью, к которой привязан файл (код в схеме)',
              'length' => '1',
              ));
-        $this->hasColumn('title', 'string', 255, array(
+        $this->hasColumn('title', 'string', 511, array(
              'type' => 'string',
              'notnull' => true,
              'comment' => 'Название исходного файла',
-             'length' => '255',
+             'length' => '511',
              ));
         $this->hasColumn('size', 'integer', 4, array(
              'type' => 'integer',
@@ -74,7 +69,7 @@ abstract class BaseFiles extends AbstractRecord
              'comment' => 'Хэш сумма от файла',
              'length' => '45',
              ));
-        $this->hasColumn('ext', 'string', 8, array(
+        $this->hasColumn('ext', 'string', 7, array(
              'type' => 'string',
              'notnull' => true,
              'comment' => 'Расширение файла',
@@ -91,10 +86,6 @@ abstract class BaseFiles extends AbstractRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Editors as Creator', array(
-             'local' => 'creator_id',
-             'foreign' => 'id'));
-
         $zfe_model_template_basezfefields0 = new ZFE_Model_Template_BaseZfeFields(array(
              'status' => false,
              ));

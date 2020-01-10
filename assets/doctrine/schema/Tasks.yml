@@ -9,12 +9,13 @@ Tasks:
     id:
       type: integer(4)
       unsigned: true
+      notnull: true
       primary: true
       autoincrement: true
       comment: Идентификатор
     created_at:
       type: timestamp(25)
-      default: current_timestamp()
+      notnull: true
       comment: Дата добавления
     scheduled_at:
       type: timestamp(25)
@@ -24,6 +25,7 @@ Tasks:
       comment: Окончание исполнения
     performer_code:
       type: string(63)
+      notnull: true
       comment: Код исполнителя
     related_id:
       type: integer(4)
@@ -32,6 +34,7 @@ Tasks:
     state:
       type: integer(1)
       unsigned: true
+      notnull: true
       default: '0'
       comment: Состояние
     errors:

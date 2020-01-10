@@ -8,6 +8,7 @@ Files:
     id:
       type: integer(4)
       unsigned: true
+      notnull: true
       primary: true
       autoincrement: true
       comment: Идентификатор

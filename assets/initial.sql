@@ -11,36 +11,51 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Table `migration_version`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `migration_version` (
-  `version` INT NOT NULL,
-  PRIMARY KEY (`version`));
+  `version` INT(11) NOT NULL,
+  PRIMARY KEY (`version`))
+ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `editors`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `editors` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
-  `version` INT UNSIGNED NOT NULL DEFAULT '1',
-  `creator_id` INT UNSIGNED NULL,
-  `editor_id` INT UNSIGNED NULL,
-  `datetime_created` TIMESTAMP NULL,
-  `datetime_edited` TIMESTAMP NULL,
-  `deleted` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
-  `status` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
-  `second_name` VARCHAR(125) NULL COMMENT 'Фамилия',
-  `first_name` VARCHAR(125) NULL COMMENT 'Имя',
-  `middle_name` VARCHAR(125) NULL COMMENT 'Отчество',
-  `email` VARCHAR(125) NULL COMMENT 'Эл. почта',
-  `phone` VARCHAR(125) NULL COMMENT 'Телефон',
-  `login` VARCHAR(31) NULL COMMENT 'Логин',
-  `password` VARCHAR(255) NULL COMMENT 'Пароль',
-  `password_salt` VARCHAR(31) NULL COMMENT 'Соль пароля',
-  `request_password_change` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Требование смены пароля',
-  `role` VARCHAR(31) NULL COMMENT 'Роль',
-  `department` VARCHAR(125) NULL COMMENT 'Подразделение',
-  `comment` VARCHAR(1000) NULL COMMENT 'Комментарий',
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `second_name` VARCHAR(125) DEFAULT NULL COMMENT 'Фамилия',
+  `first_name` VARCHAR(125) DEFAULT NULL COMMENT 'Имя',
+  `middle_name` VARCHAR(125) DEFAULT NULL COMMENT 'Отчество',
+  `email` VARCHAR(125) DEFAULT NULL COMMENT 'Эл. почта',
+  `phone` VARCHAR(125) DEFAULT NULL COMMENT 'Телефон',
+  `login` VARCHAR(31) DEFAULT NULL COMMENT 'Логин',
+  `password` VARCHAR(255) DEFAULT NULL COMMENT 'Пароль',
+  `password_salt` VARCHAR(31) DEFAULT NULL COMMENT 'Соль пароля',
+  `request_password_change` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Требование смены пароля',
+  `role` VARCHAR(31) DEFAULT NULL COMMENT 'Роль',
+  `department` VARCHAR(125) DEFAULT NULL COMMENT 'Подразделение',
+  `comment` TEXT COMMENT 'Комментарий',
+  `version` INT(10) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Версия',
+  `creator_id` INT(10) UNSIGNED DEFAULT NULL COMMENT 'Создал',
+  `editor_id` INT(10) UNSIGNED DEFAULT NULL COMMENT 'Последним изменил',
+  `datetime_created` DATETIME DEFAULT NULL COMMENT 'Дата и время создания',
+  `datetime_edited` DATETIME DEFAULT NULL COMMENT 'Дата и время последнего изменения',
+  `deleted` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Удалено',
+  `status` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Статус',
+  PRIMARY KEY (`id`),
+  KEY `editors_creator_id_idx` (`creator_id`),
+  KEY `editors_editor_id_idx` (`editor_id`),
+  CONSTRAINT `editors_creator_id_editors_id`
+    FOREIGN KEY (`creator_id`)
+    REFERENCES `editors` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE,
+  CONSTRAINT `editors_editor_id_editors_id`
+    FOREIGN KEY (`editor_id`)
+    REFERENCES `editors` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
 
 -- User for tests
 -- tester / topsecurity+
@@ -52,74 +67,82 @@ VALUES ('Tester', 'Actor', 'tester@localhost.com', 'tester', '655ed8d6dd71f130e9
 -- Table `history`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `history` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` INT UNSIGNED NULL,
-  `datetime_action` TIMESTAMP NULL,
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT(10) UNSIGNED DEFAULT NULL,
+  `datetime_action` DATETIME DEFAULT NULL,
   `table_name` VARCHAR(64) NOT NULL,
-  `content_id` INT UNSIGNED NULL,
-  `column_name` VARCHAR(64) NULL,
-  `content_version` INT UNSIGNED NULL,
-  `content_old` VARCHAR(10000) NULL,
-  `content_new` VARCHAR(10000) NULL,
-  `action_type` TINYINT(1) UNSIGNED NOT NULL,
+  `content_id` INT(10) UNSIGNED DEFAULT NULL,
+  `column_name` VARCHAR(64) DEFAULT NULL,
+  `content_version` INT(10) UNSIGNED DEFAULT NULL,
+  `content_old` TEXT,
+  `content_new` TEXT,
+  `action_type` TINYINT(3) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `FK_history_editors_1`
+  KEY `history_user_id_idx` (`user_id`),
+  CONSTRAINT `history_user_id_editors_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `editors` (`id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
-ENGINE = InnoDB;
-
-CREATE INDEX `FK_history_editors_1_idx` ON `history` (`user_id` ASC);
+ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `files`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `files` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
-  `version` INT UNSIGNED NOT NULL DEFAULT '1',
-  `creator_id` INT UNSIGNED NULL,
-  `editor_id` INT UNSIGNED NULL,
-  `datetime_created` TIMESTAMP NULL,
-  `datetime_edited` TIMESTAMP NULL,
-  `deleted` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
-  `model_name` varchar(255) NOT NULL COMMENT 'Модель записи, к которой привязан файл',
-  `item_id` int(10) UNSIGNED NOT NULL COMMENT 'ID записи, к которой привязан файл',
-  `type` tinyint(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Тип связи с записью, к которой привязан файл (код в схеме)',
-  `title` varchar(255) NOT NULL COMMENT 'Название исходного файла',
-  `size` int(10) UNSIGNED DEFAULT NULL COMMENT 'Размер файла в байтах',
-  `hash` varchar(45) DEFAULT NULL COMMENT 'Хэш сумма от файла',
-  `ext` varchar(7) NOT NULL COMMENT 'Расширение файла',
-  `path` varchar(511) NOT NULL COMMENT 'Путь до файла',
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `model_name` VARCHAR(255) DEFAULT NULL COMMENT 'Модель записи, к которой привязан файл',
+  `item_id` INT(10) UNSIGNED DEFAULT NULL COMMENT 'ID записи, к которой привязан файл',
+  `type` TINYINT(3) UNSIGNED DEFAULT NULL COMMENT 'Тип связи с записью, к которой привязан файл (код в схеме)',
+  `title` TEXT NOT NULL COMMENT 'Название исходного файла',
+  `size` INT(10) UNSIGNED DEFAULT NULL COMMENT 'Размер файла в байтах',
+  `hash` VARCHAR(45) DEFAULT NULL COMMENT 'Хэш сумма от файла',
+  `ext` VARCHAR(7) NOT NULL COMMENT 'Расширение файла',
+  `path` TEXT NOT NULL COMMENT 'Путь до файла',
+  `version` INT(10) UNSIGNED NOT NULL DEFAULT '1' COMMENT 'Версия',
+  `creator_id` INT(10) UNSIGNED DEFAULT NULL COMMENT 'Создал',
+  `editor_id` INT(10) UNSIGNED DEFAULT NULL COMMENT 'Последним изменил',
+  `datetime_created` DATETIME DEFAULT NULL COMMENT 'Дата и время создания',
+  `datetime_edited` DATETIME DEFAULT NULL COMMENT 'Дата и время последнего изменения',
+  `deleted` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Удалено',
   PRIMARY KEY (`id`),
-  KEY `FK_files_creator_id_idx` (`creator_id`),
-  CONSTRAINT `FK_files_creator_id_editors_id`
+  KEY `files_creator_id_idx` (`creator_id`),
+  KEY `files_editor_id_idx` (`editor_id`),
+  CONSTRAINT `files_creator_id_editors_id`
     FOREIGN KEY (`creator_id`)
     REFERENCES `editors` (`id`)
     ON DELETE SET NULL
-    ON UPDATE SET NULL)
-ENGINE=InnoDB;
+    ON UPDATE CASCADE,
+  CONSTRAINT `files_editor_id_editors_id`
+    FOREIGN KEY (`editor_id`)
+    REFERENCES `editors` (`id`)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `tasks`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
-  `created_at` TIMESTAMP NOT NULL COMMENT 'Дата добавления',
-  `scheduled_at` TIMESTAMP NULL COMMENT 'Плановое время запуска',
-  `done_at` TIMESTAMP NULL COMMENT 'Окончание исполнения',
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Идентификатор',
+  `created_at` DATETIME NOT NULL COMMENT 'Дата добавления',
+  `scheduled_at` DATETIME DEFAULT NULL COMMENT 'Плановое время запуска',
+  `done_at` DATETIME DEFAULT NULL COMMENT 'Окончание исполнения',
   `performer_code` VARCHAR(63) NOT NULL COMMENT 'Код исполнителя',
-  `related_id` INT UNSIGNED NULL COMMENT 'Объект исполнения',
-  `state` TINYINT(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT 'Состояние',
-  `errors` VARCHAR(1000) NULL COMMENT 'Ошибки',
-  `lft` INT UNSIGNED NULL,
-  `rgt` INT UNSIGNED NULL,
-  `level` INT UNSIGNED NULL,
-  `root_id` INT UNSIGNED NULL,
+  `related_id` int(10) UNSIGNED DEFAULT NULL COMMENT 'Объект исполнения',
+  `state` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Состояние',
+  `errors` TEXT COMMENT 'Ошибки',
+  `root_id` BIGINT(20) DEFAULT NULL,
+  `lft` INT(11) DEFAULT NULL,
+  `rgt` INT(11) DEFAULT NULL,
+  `level` SMALLINT(6) DEFAULT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARSET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

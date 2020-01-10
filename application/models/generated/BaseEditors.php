@@ -21,7 +21,6 @@ Doctrine_Manager::getInstance()->bindComponent('Editors', 'dbh');
  * @property string $department Подразделение
  * @property string $comment Комментарий
  * @property Doctrine_Collection $History
- * @property Doctrine_Collection $Files
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -112,10 +111,6 @@ abstract class BaseEditors extends AbstractRecord
         $this->hasMany('History', array(
              'local' => 'id',
              'foreign' => 'user_id'));
-
-        $this->hasMany('Files', array(
-             'local' => 'id',
-             'foreign' => 'creator_id'));
 
         $zfe_model_template_basezfefields0 = new ZFE_Model_Template_BaseZfeFields();
         $this->actAs($zfe_model_template_basezfefields0);

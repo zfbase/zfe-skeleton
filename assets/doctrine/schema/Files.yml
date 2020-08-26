@@ -26,6 +26,10 @@ Files:
     title:
       type: string(511)
       notnull: true
+      comment: Название файла
+    title_original:
+      type: string(511)
+      notnull: true
       comment: Название исходного файла
     size:
       type: integer(4)

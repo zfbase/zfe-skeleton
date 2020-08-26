@@ -11,7 +11,8 @@ Doctrine_Manager::getInstance()->bindComponent('Files', 'dbh');
  * @property string $model_name Модель записи, к которой привязан файл
  * @property integer $item_id ID записи, к которой привязан файл
  * @property integer $type Тип связи с записью, к которой привязан файл (код в схеме)
- * @property string $title Название исходного файла
+ * @property string $title Название файла
+ * @property string $title_original Название исходного файла
  * @property integer $size Размер файла в байтах
  * @property string $hash Хэш сумма от файла
  * @property string $ext Расширение файла
@@ -53,6 +54,12 @@ abstract class BaseFiles extends AbstractRecord
              'length' => '1',
              ));
         $this->hasColumn('title', 'string', 511, array(
+             'type' => 'string',
+             'notnull' => true,
+             'comment' => 'Название файла',
+             'length' => '511',
+             ));
+        $this->hasColumn('title_original', 'string', 511, array(
              'type' => 'string',
              'notnull' => true,
              'comment' => 'Название исходного файла',
